@@ -6,7 +6,6 @@ import AddExpensePage from "./AddExpensePage";
 import EditExpensePage from "./EditExpensePage";
 import HelpPage from "./HelpPage";
 import NotFoundPage from "./NotFoundPage";
-
 function App() {
   return (
     <BrowserRouter>
