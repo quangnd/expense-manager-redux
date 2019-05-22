@@ -24,6 +24,7 @@
 7. Playground with destructuring (obj & array) at `src/playground/destructuring.js`.
 8. Re-organize redux folders.
 9. Install `react-redux` package to connect redux and react.
+10. Install moment, 
 
 
 ## Concepts
