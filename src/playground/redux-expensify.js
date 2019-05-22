@@ -41,6 +41,13 @@ const removeExpense = ({ id }) => ({
   id
 });
 
+const editExpense = (id, updates) => ({
+  type: "EDIT_EXPENSE",
+  id,
+  updates
+});
+
+
 const sortByAmount = () => ({
   type: "SORT_BY_AMOUNT"
 });
@@ -71,6 +78,16 @@ const expensesReducer = (state = [], action) => {
       return [...state, action.expense];
     case "REMOVE_EXPENSE":
       return state.filter(e => e.id !== action.id);
+    case "EDIT_EXPENSE":
+      return state.map(expense => {
+        if (expense.id === action.id) {
+          return {
+            ...expense,
+            ...action.updates
+          };
+        }
+        return expense;
+      });
     default:
       return state;
   }
@@ -110,6 +127,7 @@ const filtersReducer = (state = demoState.filters, action) => {
 
 // Get visible expenses
 const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
+  console.log(expenses)
   return expenses
     .filter(expense => {
       const startDateMatch =
@@ -141,7 +159,7 @@ const store = createStore(
 store.subscribe(() => {
   const state = store.getState();
   const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-  console.log('visible', visibleExpenses);
+  console.log(visibleExpenses);
 });
 
 // Dispatch
@@ -163,8 +181,14 @@ const expenseTwo = store.dispatch(
   })
 );
 
-//store.dispatch(removeExpense({ id: expenseOne.expense.id }));
-store.dispatch(setTextFilter("water"));
+store.dispatch(removeExpense({ id: expenseOne.expense.id }));
+store.dispatch(
+  editExpense(expenseOne.expense.id, {
+    amount: 1000
+  })
+);
+
+store.dispatch(setTextFilter("Electric"));
 store.dispatch(sortByAmount());
 
 store.dispatch(setStartDate(123)); //123

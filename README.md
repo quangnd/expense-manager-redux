@@ -20,6 +20,9 @@
 - [X] Add reducer.
 4. Add basic Expense components.
 5. Playground with redux at `src/playground/redux-expensify.js`.
+6. Playground with hoc at `src/playground/hoc.js`.
+7. Playground with destructuring (obj & array) at `src/playground/destructuring.js`.
+8. Re-organize redux folders.
 
 
 ## Concepts
