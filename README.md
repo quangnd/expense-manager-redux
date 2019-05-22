@@ -2,8 +2,9 @@
 
 ## Features
 
-- [ ] Add redux to CRA.
+- [X] Add redux to CRA.
 - [ ] Playground with redux at `src/playground/redux101.js`.
+- [ ] Connect Redux & React.
 - [ ] Add React router.
 - [ ] CRUD expense.
 - [ ] Testing with JEST & Enzyme.
@@ -14,3 +15,5 @@
 2. Playground with redux to understand basic concepts at `src/playground/redux101.js`.
 
 ## References
+
+1. [redux.org](https://redux.js.org)
