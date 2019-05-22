@@ -13,7 +13,7 @@ const demoState = {
   ],
   filters: {
     text: "rent",
-    sortBy: "amount",
+    sortBy: "blabla",
     startDate: undefined,
     endDate: undefined
   }
@@ -41,13 +41,36 @@ const removeExpense = ({ id }) => ({
   id
 });
 
+const sortByAmount = () => ({
+  type: "SORT_BY_AMOUNT"
+});
+
+const sortByDate = () => ({
+  type: "SORT_BY_DATE"
+});
+
+const setTextFilter = text => ({
+  type: "SET_TEXT_FILTER",
+  text
+});
+
+const setStartDate = startDate => ({
+  type: "SET_START_DATE",
+  startDate
+});
+
+const setEndDate = endDate => ({
+  type: "SET_END_DATE",
+  endDate
+});
+
 // Reducers
 const expensesReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_EXPENSE":
       return [...state, action.expense];
     case "REMOVE_EXPENSE":
-      return state.filter(e => e.id !== action.id)
+      return state.filter(e => e.id !== action.id);
     default:
       return state;
   }
@@ -55,9 +78,56 @@ const expensesReducer = (state = [], action) => {
 
 const filtersReducer = (state = demoState.filters, action) => {
   switch (action.type) {
+    case "SET_TEXT_FILTER":
+      return {
+        ...state,
+        text: action.text
+      };
+    case "SORT_BY_AMOUNT":
+      return {
+        ...state,
+        sortBy: "amount"
+      };
+    case "SORT_BY_DATE":
+      return {
+        ...state,
+        sortBy: "date"
+      };
+    case "SET_START_DATE":
+      return {
+        ...state,
+        startDate: action.startDate
+      };
+    case "SET_END_DATE":
+      return {
+        ...state,
+        endDate: action.endDate
+      };
     default:
       return state;
   }
+};
+
+// Get visible expenses
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
+  return expenses
+    .filter(expense => {
+      const startDateMatch =
+        typeof startDate !== "number" || expense.createdAt >= startDate;
+      const endDateMatch =
+        typeof endDate !== "number" || expense.createdAt <= endDate;
+      const textMatch = expense.description
+        .toLowerCase()
+        .includes(text.toLowerCase());
+
+      return startDateMatch && endDateMatch && textMatch;
+    })
+    .sort((a, b) => {
+      if (sortBy === "date") {
+        return a.createdAt < b.createdAt ? 1 : -1;
+      }
+      return a.amount < b.amount ? 1 : -1;
+    });
 };
 
 // Store
@@ -69,28 +139,34 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-  console.log(store.getState());
+  const state = store.getState();
+  const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+  console.log('visible', visibleExpenses);
 });
 
 // Dispatch
 const expenseOne = store.dispatch(
   addExpense({
-    description: "Here is the des",
+    description: "Water bill",
     note: "Some note",
     amount: 56400,
     createdAt: 0
   })
 );
 
-const expenseTwo= store.dispatch(
+const expenseTwo = store.dispatch(
   addExpense({
-    description: "Des 2",
+    description: "Electric bill",
     note: "NOte 2",
     amount: 12334,
     createdAt: 0
   })
 );
 
-console.log(expenseOne)
+//store.dispatch(removeExpense({ id: expenseOne.expense.id }));
+store.dispatch(setTextFilter("water"));
+store.dispatch(sortByAmount());
 
-store.dispatch(removeExpense({ id: expenseOne.expense.id }));
+store.dispatch(setStartDate(123)); //123
+store.dispatch(setStartDate()); //undefined
+store.dispatch(setEndDate(456)); //456
