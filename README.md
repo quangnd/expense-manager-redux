@@ -23,6 +23,7 @@
 6. Playground with hoc at `src/playground/hoc.js`.
 7. Playground with destructuring (obj & array) at `src/playground/destructuring.js`.
 8. Re-organize redux folders.
+9. Install `react-redux` package to connect redux and react.
 
 
 ## Concepts

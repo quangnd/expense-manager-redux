@@ -1,6 +1,6 @@
 const defaultFilterState = {
-  text: "rent",
-  sortBy: "blabla",
+  text: "",
+  sortBy: "",
   startDate: undefined,
   endDate: undefined
 };
