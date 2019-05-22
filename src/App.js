@@ -7,7 +7,7 @@ import EditExpensePage from "./EditExpensePage";
 import HelpPage from "./HelpPage";
 import NotFoundPage from "./NotFoundPage";
 import "./playground/redux101.js";
-
+import "./playground/redux-expensify.js";
 function App() {
   return (
     <BrowserRouter>

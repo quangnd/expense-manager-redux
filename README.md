@@ -11,11 +11,16 @@
 
 ## Guides
 
-1. Install Redux `npm install --save redux`
-2. Playground with redux to understand basic concepts at `src/playground/redux101.js`.
+1. Install Redux `npm install --save redux`.
+2. Install another library `npm install --save uuid react-router-dom`.
+3. Playground with redux to understand basic concepts at `src/playground/redux101.js`.
 - [X] Create store.
 - [X] Dispatch actions.
 - [X] Refactor code to Action creators.
+- [X] Add reducer.
+4. Add basic Expense components.
+5. Playground with redux at `src/playground/redux-expensify.js`.
+
 
 ## Concepts
 

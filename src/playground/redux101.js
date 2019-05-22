@@ -62,3 +62,5 @@ store.dispatch(resetCount());
 store.dispatch(decrementCount({ decrementBy: 3 }));
 
 store.dispatch(setCount({ count: 101 }));
+
+console.log('----END REDUX101----')
