@@ -8,9 +8,15 @@ import * as serviceWorker from "./serviceWorker";
 import { addExpense } from "./actions/expenses";
 
 const store = configureStore();
-store.dispatch(addExpense({ description: "mun bill", amount: 10, createdAt: 400 }));
-store.dispatch(addExpense({ description: "water bill", amount: 20, createdAt: 300  }));
-store.dispatch(addExpense({ description: "electric", amount: 30, createdAt: 200  }));
+store.dispatch(
+  addExpense({ description: "mun bill", amount: 10, createdAt: 400 })
+);
+store.dispatch(
+  addExpense({ description: "water bill", amount: 20, createdAt: 300 })
+);
+store.dispatch(
+  addExpense({ description: "electric", amount: 30, createdAt: 200 })
+);
 
 ReactDOM.render(
   <Provider store={store}>

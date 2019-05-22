@@ -5,13 +5,19 @@ import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 
 class ExpenseForm extends React.Component {
-  state = {
-    description: "",
-    note: "",
-    amount: 0,
-    createdAt: moment(),
-    calendarFocused: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      description: props.expense ? props.expense.description : "",
+      note: props.expense ? props.expense.note : "",
+      amount: props.expense ? props.expense.amount : "",
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+      calendarFocused: false,
+      error: ""
+    };
+  }
+
   onDescription = e => {
     this.setState({ description: e.target.value });
   };
@@ -22,16 +28,32 @@ class ExpenseForm extends React.Component {
     this.setState({ amount: e.target.value });
   };
   onDateChange = createdAt => {
-    this.setState({ createdAt });
+    if (createdAt) {
+      this.setState({ createdAt });
+    }
   };
   onFocusChange = ({ focused }) => {
     this.setState({ calendarFocused: focused });
   };
-
+  onSubmit = e => {
+    e.preventDefault();
+    if (!this.state.description || !this.state.amount) {
+      this.setState({ error: "Please provide description and amount!" });
+    } else {
+      this.setState({ error: "" });
+      this.props.onSubmit({
+        description: this.state.description,
+        amount: this.state.amount,
+        note: this.state.note,
+        createdAt: this.state.createdAt.valueOf()
+      });
+    }
+  };
   render() {
     return (
-      <form>
+      <form onSubmit={this.onSubmit}>
         <h1> Add new expense </h1>
+        {this.state.error && <p>{this.state.error}</p>}
         <input
           type="text"
           placeholder="Enter description"
@@ -47,12 +69,18 @@ class ExpenseForm extends React.Component {
           isOutsideRange={() => false}
           id="xyz-123"
         />
-        Amount: <input
+        Amount:{" "}
+        <input
           type="number"
           placeholder="Amount"
+          value={this.state.amount}
           onChange={this.onAmountChange}
         />
-        <textarea placeholder="Add a note" onChange={this.onNoteChange} />
+        <textarea
+          placeholder="Add a note"
+          value={this.state.note}
+          onChange={this.onNoteChange}
+        />
         <button>Submit</button>
       </form>
     );

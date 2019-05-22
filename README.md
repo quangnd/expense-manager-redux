@@ -3,9 +3,9 @@
 ## Features
 
 - [X] Add redux to CRA.
-- [ ] Playground with redux at `src/playground/redux101.js`.
-- [ ] Connect Redux & React.
-- [ ] Add React router.
+- [X] Playground with redux at `src/playground/redux101.js`.
+- [X] Connect Redux & React.
+- [X] Add React router.
 - [ ] CRUD expense.
 - [ ] Testing with JEST & Enzyme.
 
@@ -24,7 +24,7 @@
 7. Playground with destructuring (obj & array) at `src/playground/destructuring.js`.
 8. Re-organize redux folders.
 9. Install `react-redux` package to connect redux and react.
-10. Install moment, 
+10. Install moment, [react-dates](https://github.com/airbnb/react-dates)
 
 
 ## Concepts
