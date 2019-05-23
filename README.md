@@ -6,7 +6,7 @@
 - [X] Playground with redux at `src/playground/redux101.js`.
 - [X] Connect Redux & React.
 - [X] Add React router.
-- [ ] CRUD expense.
+- [X] CRUD expense.
 - [ ] Testing with JEST & Enzyme.
 
 ## Guides
