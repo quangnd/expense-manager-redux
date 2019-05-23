@@ -2,7 +2,7 @@ import moment from "moment";
 
 const defaultFilterState = {
   text: "",
-  sortBy: "",
+  sortBy: "date",
   startDate: moment().startOf("month"),
   endDate: moment().endOf("month")
 };
