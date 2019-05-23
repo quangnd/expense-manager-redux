@@ -69,7 +69,7 @@ class ExpenseForm extends React.Component {
           onFocusChange={this.onFocusChange} // PropTypes.func.isRequired
           numberOfMonths={1}
           isOutsideRange={() => false}
-          id="xyz-123"
+          id="sdp-123"
         />
         Amount:{" "}
         <input
