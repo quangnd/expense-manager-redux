@@ -25,7 +25,20 @@
 8. Re-organize redux folders.
 9. Install `react-redux` package to connect redux and react.
 10. Install moment, [react-dates](https://github.com/airbnb/react-dates)
-
+11. Testing
+- Install test tools `npm install --save enzyme enzyme-adapter-react-16 react-test-renderer`
+- Configured Enzyme in the global setup file: `src/setupTests.js` (CRA auto pick this file at this location)
+- To print snapshot in JSON, we need to install `npm install --save-dev enzyme-to-json`.
+- Update your `package.json`
+```
+"jest": {
+  "snapshotSerializers": ["enzyme-to-json/serializer"]
+}
+```
+- If we want to use another location for `setupTests.js`, add this code to jest config in package.json (*this is not currently supported by Create React App*)
+```
+"setupFiles": ["./src/setupTests.js"],
+```
 
 ## Concepts
 
@@ -50,3 +63,5 @@
 ## References
 
 1. [redux.org](https://redux.js.org)
+2. [CRA running test document](https://facebook.github.io/create-react-app/docs/running-tests)
+3. [Testing React with Jest and Enzyme Part I](https://medium.com/codeclan/testing-react-with-jest-and-enzyme-20505fec4675)
