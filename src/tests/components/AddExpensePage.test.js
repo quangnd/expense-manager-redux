@@ -10,6 +10,7 @@ beforeEach(() => {
   history = { push: jest.fn() };
   wrapper = shallow(<AddExpensePage onSubmit={onSubmit} history={history} />);
 });
+
 test("should render AddExpensePage correctly", () => {
   expect(wrapper).toMatchSnapshot();
 });

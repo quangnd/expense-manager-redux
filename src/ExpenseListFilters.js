@@ -8,6 +8,7 @@ import {
   setStartDate,
   setEndDate
 } from "./actions/filters";
+import uuid from "uuid";
 
 class ExpenseListFilters extends React.Component {
   state = {
@@ -52,6 +53,8 @@ class ExpenseListFilters extends React.Component {
           showClearDates={true}
           numberOfMonths={1}
           isOutsideRange={() => false}
+          startDateId={uuid()}
+          endDateId={uuid()}
         />
       </div>
     );

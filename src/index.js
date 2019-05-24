@@ -10,14 +10,17 @@ import { addExpense } from "./actions/expenses";
 
 const store = configureStore();
 store.dispatch(
-  addExpense({ description: "mun bill", amount: 10, createdAt: 400 })
+  addExpense({ description: "mun bill", amount: 10, createdAt: 0 })
 );
 store.dispatch(
-  addExpense({ description: "water bill", amount: 20, createdAt: 300 })
+  addExpense({ description: "water bill", amount: 20, createdAt: 1558684917503 })
 );
 store.dispatch(
-  addExpense({ description: "electric", amount: 30, createdAt: 200 })
+  addExpense({ description: "electric", amount: 30, createdAt: 1558684917503 })
 );
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 
 ReactDOM.render(
   <Provider store={store}>
