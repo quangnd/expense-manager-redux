@@ -1,4 +1,4 @@
-# Expensify Manager with Redux
+# Expensify Manager with Redux 💰
 
 ## Features
 
@@ -6,8 +6,8 @@
 - [X] Playground with redux at `src/playground/redux101.js`.
 - [X] Connect Redux & React.
 - [X] Add React router.
-- [X] CRUD expense.
-- [ ] Testing with JEST & Enzyme.
+- [X] CRUD expenses.
+- [X] Testing with **JEST & Enzyme** (using Mock, Spies, Simulate etc.) 😌
 
 ## Guides
 
@@ -65,3 +65,5 @@
 1. [redux.org](https://redux.js.org)
 2. [CRA running test document](https://facebook.github.io/create-react-app/docs/running-tests)
 3. [Testing React with Jest and Enzyme Part I](https://medium.com/codeclan/testing-react-with-jest-and-enzyme-20505fec4675)
+4. Jest official documentation.
+5. Enzyme official documentation.

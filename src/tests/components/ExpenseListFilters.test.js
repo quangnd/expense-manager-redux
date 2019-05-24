@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 import { shallow } from "enzyme";
 import { ExpenseListFilters } from "../../ExpenseListFilters";
 import { filters, altFilters } from "../fixtures/filters";
