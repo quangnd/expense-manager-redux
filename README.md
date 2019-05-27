@@ -8,6 +8,7 @@
 - [X] Add React router.
 - [X] CRUD expenses.
 - [X] Testing with **JEST & Enzyme** (using Mock, Spies, Simulate etc.) 😌
+- [ ] Styling.
 
 ## Guides
 
