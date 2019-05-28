@@ -6,6 +6,7 @@ import AddExpensePage from "./AddExpensePage";
 import EditExpensePage from "./EditExpensePage";
 import HelpPage from "./HelpPage";
 import NotFoundPage from "./NotFoundPage";
+import './firebase/firebase';
 
 function App() {
   return (
